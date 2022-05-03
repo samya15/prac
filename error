@@ -1,0 +1,49 @@
+#include<stdio.h>
+int main()
+{
+    int marks[10];
+    int i;
+    for(i=0;i<=9;i++)
+    {
+        printf("Enter the marks of Student %d: ",i+1);
+        scanf("%d",&marks[i]);
+    }
+    printf("\nEnter 1 for updating.\nEnter 2 for deleting.\n\nChoice: ");
+    int choice;
+    scanf("%d",&choice);
+    int marks_new[9];
+    switch(choice)
+    {
+        case 1:
+        {
+            int student, newmarks;
+            printf("Enter the student no.: ");
+            scanf("%d",&student);
+            printf("Marks of Student %d: %d\n",student,marks[student]);
+            printf("Enter new marks: ");
+            scanf("%d",&newmarks);
+            marks[student]=newmarks;
+            printf("Marks Updated Successfully!\n");
+        }
+        case 2:
+        {
+            int student, j;
+            printf("Enter the student no.: ");
+            scanf("%d",&student);
+            i=student;
+            for(j=1;j<=(10-student);j++)
+            {
+                marks[i-1]=marks[i];
+                i++;
+            }
+            int k;
+            for(k=0;k<=8;k++)
+                marks_new[k]=marks[k];
+            printf("Marks Deleted Successfully!\n");
+        }
+    }
+    int l;
+    for(l=0;l<=9;l++)
+        printf("%d\n",marks[l]);
+    return 0;
+}
