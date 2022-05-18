@@ -1,49 +1,31 @@
-#include<stdio.h>
+#include <stdio.h>
+//Selection Sort
 int main()
 {
-    int marks[10];
-    int i;
-    for(i=0;i<=9;i++)
+    int a[]={12,45,23,51,19,8};
+    int n=sizeof(a)/sizeof(a[0]);
+    int i, j, k, s_num, cup, index;
+    for(j=0;j<=(n-2);j++)
     {
-        printf("Enter the marks of Student %d: ",i+1);
-        scanf("%d",&marks[i]);
-    }
-    printf("\nEnter 1 for updating.\nEnter 2 for deleting.\n\nChoice: ");
-    int choice;
-    scanf("%d",&choice);
-    int marks_new[9];
-    switch(choice)
-    {
-        case 1:
+        i=j;
+        for(i;i<=(n-2);i++)
         {
-            int student, newmarks;
-            printf("Enter the student no.: ");
-            scanf("%d",&student);
-            printf("Marks of Student %d: %d\n",student,marks[student]);
-            printf("Enter new marks: ");
-            scanf("%d",&newmarks);
-            marks[student]=newmarks;
-            printf("Marks Updated Successfully!\n");
+            if(a[i]<a[i+1])
+                s_num=a[i];
+            else
+                s_num=a[i+1];
         }
-        case 2:
+        for(k=0;k<=(n-1);k++)
         {
-            int student, j;
-            printf("Enter the student no.: ");
-            scanf("%d",&student);
-            i=student;
-            for(j=1;j<=(10-student);j++)
-            {
-                marks[i-1]=marks[i];
-                i++;
-            }
-            int k;
-            for(k=0;k<=8;k++)
-                marks_new[k]=marks[k];
-            printf("Marks Deleted Successfully!\n");
+            if(a[k]==s_num)
+                index=k;
         }
+        cup=a[j];
+        a[j]=s_num;
+        a[index]=cup;
     }
-    int l;
-    for(l=0;l<=9;l++)
-        printf("%d\n",marks[l]);
+    int q;
+    for(q=0;q<=(n-1);q++)
+        printf("%d\n",a[q]);
     return 0;
 }
